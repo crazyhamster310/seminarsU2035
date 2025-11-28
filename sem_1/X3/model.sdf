@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version='1.6'>
-  <model name='x3'>
+  <model name='X3'>
     <pose>0 0 0.053302 0 0 0</pose>
     <link name='X3/base_link'>
       <pose frame=''>0 0 0 0 -0 0</pose>
