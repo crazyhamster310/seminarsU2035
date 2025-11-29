@@ -1,0 +1,47 @@
+- ros_topic_name: "/model/X3/odometry"
+  gz_topic_name: "/model/X3/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "ignition.msgs.Odometry"
+  direction: "GZ_TO_ROS"
+
+- ros_topic_name: "/X3/cmd_vel"
+  gz_topic_name: "/X3/gazebo/command/twist"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "ignition.msgs.Twist"
+  direction: "ROS_TO_GZ"
+
+- ros_topic_name: "/model/X3/imu"
+  gz_topic_name: "/world/sitl/model/X3/link/X3/base_link/sensor/imu_sensor/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: "GZ_TO_ROS"
+
+- ros_topic_name: "/X3/motor_speed"
+  gz_topic_name: "/X3/motor_speed"
+  ros_type_name: "actuator_msgs/msg/Actuators"
+  gz_type_name: "ignition.msgs.Actuators"
+  direction: "ROS_TO_GZ"
+
+- ros_topic_name: "/camera/image_raw"
+  gz_topic_name: "/camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: "GZ_TO_ROS"
+
+- ros_topic_name: "/contact"
+  gz_topic_name: "/contacts"
+  ros_type_name: "ros_gz_interfaces/msg/Contacts"
+  gz_type_name: "ignition.msgs.Contacts"
+  direction: "GZ_TO_ROS"
+
+- ros_topic_name: "/lidar"
+  gz_topic_name: "/lidar"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: "GZ_TO_ROS"
+
+- ros_topic_name: "/gps/fix"
+  gz_topic_name: "/gps"
+  ros_type_name: "sensor_msgs/msg/NavSatFix"
+  gz_type_name: "ignition.msgs.NavSat"
+  direction: GZ_TO_ROS

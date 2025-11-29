@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<sdf version='1.6'>
+  <model name='fpv_f5d_auton_lps'>
+    <!-- <pose>0 1 5 0 0 0</pose> -->
+    <link name='base_link'>
+      <inertial>
+        <mass>0.68</mass>
+        <inertia>
+          <ixx>0.0014</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0017</iyy>
+          <iyz>0</iyz>
+          <izz>0.0026</izz>
+        </inertia>
+      </inertial>
+      <!-- collision -->
+      <!-- <collision name='base_link_workaround_collision'>
+        <pose>-0.0012 0.0 -0.00679 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.17 0.22 0.03641</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <collision name='base_link_main_collision_1'>
+        <pose>0.0185 0.0 0.001 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.193 0.038 0.043</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_main_collision_2'>
+        <pose>-0.0922 0.0 0.023 0.0 -0.83601 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.052</length>
+            <radius>0.007</radius>
+          </cylinder>
+        </geometry>
+      </collision> -->
+      <!-- <collision name='base_link_main_collision_3'>
+        <pose>-0.0654 0.0 -0.0225 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.15 0.005</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <!-- <collision name='base_link_battery_collision_1'>
+        <pose>0.0018 0.0 0.0305 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.045 0.045</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_battery_collision_2'>
+        <pose>-0.0517 0.0 0.035 0.0 -0.48869 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.055 0.03 0.036</size>
+          </box>
+        </geometry>
+      </collision> -->
+      <collision name='base_link_unified_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <!-- Используем ваши точные габариты -->
+            <size>0.264 0.317 0.090</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_main_visual_1'>
+        <pose>0.0185 0.0 0.001 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.193 0.038 0.043</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_main_visual_2'>
+        <pose>-0.0922 0.0 0.023 0.0 -0.83601 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.052</length>
+            <radius>0.007</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='base_link_main_visual_3'>
+        <pose>-0.0654 0.0 -0.0225 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.15 0.005</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_battery_visual_1'>
+        <pose>0.0018 0.0 0.0305 0.0 0.0 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.045 0.045</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_battery_visual_2'>
+        <pose>-0.0517 0.0 0.035 0.0 -0.48869 0.0</pose>
+        <geometry>
+          <box>
+            <size>0.055 0.03 0.036</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_arm_1_visual'>
+        <pose>0.0598 -0.0626 -0.0143 0.0 0.0 -1.309</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.027 0.0124</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_arm_2_visual'>
+        <pose>-0.03 0.0495 -0.0143 0.0 0.0 -0.69813</pose>
+        <geometry>
+          <box>
+            <size>0.135 0.027 0.0124</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_arm_3_visual'>
+        <pose>0.0598 0.0626 -0.0143 0.0 0.0 1.309</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.027 0.0124</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_arm_4_visual'>
+        <pose>-0.03 -0.0495 -0.0143 0.0 0.0 0.69813</pose>
+        <geometry>
+          <box>
+            <size>0.135 0.027 0.0124</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_motor_1_visual'>
+        <pose>0.0677 -0.09436 -0.0035 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.043</length>
+            <radius>0.0135</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='base_link_motor_2_visual'>
+        <pose>-0.0677 0.08223 -0.0035 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.043</length>
+            <radius>0.0135</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='base_link_motor_3_visual'>
+        <pose>0.0677 0.09436 -0.0035 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.043</length>
+            <radius>0.0135</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='base_link_motor_4_visual'>
+        <pose>-0.0677 -0.08223 -0.0035 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.043</length>
+            <radius>0.0135</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <!-- SENSORS -->
+      <sensor name="collision_sensor" type="contact">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <contact>
+          <collision>base_link_unified_collision</collision>
+          <topic>/contacts</topic>
+        </contact>
+      </sensor>
+
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>100.0</update_rate>
+        <visualize>true</visualize>
+        <imu>
+          <angular_velocity>true</angular_velocity>
+          <linear_acceleration>true</linear_acceleration>
+        </imu>
+        <plugin filename="gz-sim-imu-system"
+          name="gz::sim::systems::Imu">
+        </plugin>
+      </sensor>
+    </link>
+    
+    <link name="camera_link">
+      <pose>0.107 0 0 0 0.349066 0</pose>
+      <inertial>
+        <mass>0.0001</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <sensor name="camera_sensor" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>100</far>
+          </clip>
+          <lens>
+            <type>custom</type>
+            <vfov>1.5147</vfov>
+            <c1>1.0</c1>
+            <f>1.0</f>  
+          </lens>
+        </camera>
+
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>camera</topic>
+
+        <plugin name="gz::sim::systems::CameraVideoRecorder"
+          filename="ignition-gazebo-camera-video-recorder-system" />
+      </sensor>
+    </link>
+
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+    
+    <link name='blade_1'>
+      <pose>0.0677 -0.09436 0.01006 0 0 0</pose>
+      <inertial>
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>0.0000012</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000012</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000023</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='blade_1_collision'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision> -->
+      <visual name='blade_1_visual'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+
+    <joint name='blade_1_joint' type='revolute'>
+      <child>blade_1</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='blade_2'>
+      <pose>-0.0677 0.08223 0.01006 0 0 0</pose>
+      <inertial>
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>0.0000012</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000012</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000023</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='blade_2_collision'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision> -->
+      <visual name='blade_2_visual'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+
+    <joint name='blade_2_joint' type='revolute'>
+      <child>blade_2</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='blade_3'>
+      <pose>0.0677 0.09436 0.01006 0 0 0</pose>
+      <inertial>
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>0.0000012</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000012</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000023</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='blade_3_collision'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision> -->
+      <visual name='blade_3_visual'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+
+    <joint name='blade_3_joint' type='revolute'>
+      <child>blade_3</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='blade_4'>
+      <pose>-0.0677 -0.08223 0.01006 0 0 0</pose>
+      <inertial>
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>0.0000012</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000012</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000023</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='blade_4_collision'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision> -->
+      <visual name='blade_4_visual'>
+        <pose>0.0 0.0 -0.00165 0.0 0.0 0.0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.006</length>
+            <radius>0.0637</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+
+    <joint name='blade_4_joint' type='revolute'>
+      <child>blade_4</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>fpv_f5d_auton_lps</robotNamespace>
+      <jointName>blade_1_joint</jointName>
+      <linkName>blade_1</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>4662</maxRotVelocity>
+      <motorConstant>0.000000614</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <motorNumber>0</motorNumber>
+      <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+      <commandSubTopic>motor_speed</commandSubTopic>
+      <rotorDragCoefficient>1.0e-5</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-07</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>100</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>fpv_f5d_auton_lps</robotNamespace>
+      <jointName>blade_2_joint</jointName>
+      <linkName>blade_2</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>4662</maxRotVelocity>
+      <motorConstant>0.000000614</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+      <rotorDragCoefficient>1.0e-5</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-07</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>100</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>fpv_f5d_auton_lps</robotNamespace>
+      <jointName>blade_3_joint</jointName>
+      <linkName>blade_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>4662</maxRotVelocity>
+      <motorConstant>0.000000614</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+      <rotorDragCoefficient>1.0e-5</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-07</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>100</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <robotNamespace>fpv_f5d_auton_lps</robotNamespace>
+      <jointName>blade_4_joint</jointName>
+      <linkName>blade_4</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>4662</maxRotVelocity>
+      <motorConstant>0.000000614</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>motor_speed</commandSubTopic>
+      <motorNumber>3</motorNumber>
+      <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+      <rotorDragCoefficient>1.0e-5</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-07</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>100</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_publish_frequency>100</odom_publish_frequency>
+        <dimensions>3</dimensions>
+        <!-- <odom_topic>odom_ground_truth</odom_topic>
+        <odom_frame>odom</odom_frame> -->
+        <!-- <robot_base_frame>base_link</robot_base_frame> -->
+    </plugin>
+  </model>
+</sdf>
