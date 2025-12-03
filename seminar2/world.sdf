@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<sdf version='1.9'>
+  <world name='sitl'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='ignition-gazebo-contact-system'/>
+    <plugin name="ignition::gazebo::systems::Imu" filename="libignition-gazebo-imu-system.so"/>
+    <plugin
+      filename="ignition-gazebo-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    
+    <!-- Заменено освещение и сцена из первой карты -->
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.3 0.7 0.9 1</background>
+      <shadows>0</shadows>
+      <grid>false</grid>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>0</cast_shadows>
+      <pose>-5 -3 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <direction>0 0 -1</direction>
+    </light>
+
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/Warehouse</uri><name>warehouse</name><pose>0 0 -0.09 0 0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf_big</uri><name>shelf_big_0</name><pose>-9.34177 -13.5598 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf</name><pose>-4.41528 -0.690987 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_0</name><pose>-4.41528 2.30697 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_1</name><pose>-4.41528 5.30708 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_2</name><pose>-4.41528 8.34352 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_3</name><pose>5.60144 8.34352 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_4</name><pose>5.60144 5.30708 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_5</name><pose>5.60144 -0.690987 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_6</name><pose>5.60144 2.30697 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/pallet_box_mobile</uri><name>pallet_box_mobile</name><pose>4.4161 14.6952 0.01 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/pallet_box_mobile</uri><name>pallet_box_mobile_0</name><pose>4.45415 13.6212 0.01 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/pallet_box_mobile</uri><name>pallet_box_mobile_1</name><pose>4.4468 12.229 0.01 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/pallet_box_mobile</uri><name>pallet_box</name><pose>-6.11913 13.7079 0.01 0 -0 0</pose><static>true</static></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf_big</uri><name>shelf_big_1</name><pose>13.9821 15.319 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf_big</uri><name>shelf_big_2</name><pose>6.19777 -12.9647 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf_big</uri><name>shelf_big_3</name><pose>0.594376 -12.9647 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf_big</uri><name>shelf_big_4</name><pose>-5.36284 -12.9647 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_7</name><pose>13.3818 -21.2416 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_8</name><pose>13.3818 -19.0028 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_9</name><pose>13.3818 -16.4478 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/shelf</uri><name>shelf_10</name><pose>13.3818 -14.1028 0 0 -0 0</pose></include>
+    <include><uri>https://fuel.ignitionrobotics.org/1.0/MovAi/models/pallet_box_mobile</uri><name>pallet_box_0</name><pose>14.0222 -24.335 0.01 0 -0 0</pose><static>true</static></include>
+
+    <model name='spawn_platform'>
+      <static>true</static>
+      <pose>0 0 0.01 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>30 50 0.1</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>30 50 0.1</size></box></geometry>
+          <material><ambient>0.2 0.2 1.0 1</ambient><diffuse>0.2 0.2 1.0 1</diffuse><specular>0.2 0.2 1.0 1</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>model://x3</uri>
+      <name>X3</name>
+      <pose>0 9 0.5 0 0 -1.57</pose>
+    </include>
+  </world>
+</sdf>
