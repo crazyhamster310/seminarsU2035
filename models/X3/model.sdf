@@ -33,7 +33,6 @@
           </mesh>
         </geometry>
       </visual>
-      
       <sensor name="collision_sensor" type="contact">
         <always_on>true</always_on>
         <update_rate>100</update_rate>
@@ -47,12 +46,67 @@
         <update_rate>100.0</update_rate>
         <visualize>true</visualize>
         <imu>
-          <angular_velocity>true</angular_velocity>
+          <angular_velocity>
+            <z>
+              <noise type="gaussian">
+                <stddev>1</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
           <linear_acceleration>true</linear_acceleration>
         </imu>
         <plugin filename="gz-sim-imu-system"
           name="gz::sim::systems::Imu">
         </plugin>
+      </sensor>
+      <sensor name='gpu_lidar' type='gpu_lidar'>
+        <pose>0 0 -0.1 0 0 0</pose>
+        <topic>lidar</topic>
+        <update_rate>20</update_rate>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-3.14159</min_angle>
+                    <max_angle>3.14159</max_angle>
+                </horizontal>
+                <vertical>
+                    <samples>1</samples>
+                    <resolution>0.01</resolution>
+                    <min_angle>0</min_angle>
+                    <max_angle>0</max_angle>
+                </vertical>
+            </scan>
+            <range>
+                <min>0.08</min>
+                <max>10.0</max>
+                <resolution>0.01</resolution>
+            </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+      <sensor name="gps_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <topic>gps</topic>
+        <navsat>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.0</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.0</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </navsat>
       </sensor>
 
     </link>
@@ -72,11 +126,12 @@
       </inertial>
       <sensor name="camera_sensor" type="camera">
         <pose>0 0 0 0 0 0</pose>
+        <topic>camera</topic>
         <camera>
           <horizontal_fov>1.5</horizontal_fov>
           <image>
             <width>640</width>
-            <height>480</height>
+            <height>640</height>
             <format>R8G8B8</format>
           </image>
           <clip>
@@ -141,12 +196,12 @@
             <uri>./meshes/propeller_ccw.dae</uri>
           </mesh>
         </geometry>
-        <material>
+        <!-- <material>
           <script>
             <name>Gazebo/Blue</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
-        </material>
+        </material> -->
       </visual>
       <gravity>1</gravity>
       <velocity_decay />
@@ -206,12 +261,12 @@
             <uri>./meshes/propeller_ccw.dae</uri>
           </mesh>
         </geometry>
-        <material>
+        <!-- <material>
           <script>
             <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
-        </material>
+        </material> -->
       </visual>
       <gravity>1</gravity>
       <velocity_decay />
@@ -271,12 +326,12 @@
             <uri>./meshes/propeller_cw.dae</uri>
           </mesh>
         </geometry>
-        <material>
+        <!-- <material>
           <script>
             <name>Gazebo/Blue</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
-        </material>
+        </material> -->
       </visual>
       <gravity>1</gravity>
       <velocity_decay />
@@ -336,12 +391,12 @@
             <uri>./meshes/propeller_cw.dae</uri>
           </mesh>
         </geometry>
-        <material>
+        <!-- <material>
           <script>
             <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
-        </material>
+        </material> -->
       </visual>
       <gravity>1</gravity>
       <velocity_decay />
@@ -372,7 +427,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>800.0</maxRotVelocity>
+      <maxRotVelocity>1200.0</maxRotVelocity>
       <motorConstant>8.54858e-06</motorConstant>
       <momentConstant>0.016</momentConstant>
       <commandSubTopic>motor_speed</commandSubTopic>
@@ -392,7 +447,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>800.0</maxRotVelocity>
+      <maxRotVelocity>1200.0</maxRotVelocity>
       <motorConstant>8.54858e-06</motorConstant>
       <momentConstant>0.016</momentConstant>
       <commandSubTopic>motor_speed</commandSubTopic>
@@ -412,7 +467,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>800.0</maxRotVelocity>
+      <maxRotVelocity>1200.0</maxRotVelocity>
       <motorConstant>8.54858e-06</motorConstant>
       <momentConstant>0.016</momentConstant>
       <commandSubTopic>motor_speed</commandSubTopic>
@@ -432,7 +487,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>800.0</maxRotVelocity>
+      <maxRotVelocity>1200.0</maxRotVelocity>
       <motorConstant>8.54858e-06</motorConstant>
       <momentConstant>0.016</momentConstant>
       <commandSubTopic>motor_speed</commandSubTopic>
