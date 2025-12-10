@@ -9,11 +9,11 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 from rclpy.qos import QoSPresetProfiles
 from scipy.spatial.transform import Rotation as R
-from sensor_msgs.msg import NavSatFix
 
 
 class ROSInterface:
     def __init__(self, logger=None):
+        # Проверяем, находится ли rclpy в рабочем состоянии (когда-то был вызван init и сейчас не в процессе выключения)
         if not rclpy.ok():
             rclpy.init()
         # Создаем ноду контроллера
@@ -25,26 +25,16 @@ class ROSInterface:
             self.logger = self._node.get_logger()
         self.logger.info("ROS 2 node initialized.")
 
-        # Топики для одометрии, gps и управления по скоростям
+        # Топики для одометрии и управления по скоростям
         self.vel_topic = "/X3/cmd_vel"
         self.odom_topic = "/X3/odometry"
-        self.gps_topic = "/gps/fix"
         # Последнее известное значение одометрии
         self._latest_odom: Odometry | None = None
-        # Последнее известное значение gps
-        self._latest_gps: np.ndarray | None = None
         # Подписка на топик одометрии
         self._node.create_subscription(
             Odometry,
             self.odom_topic,
             self.odom_callback,
-            QoSPresetProfiles.SENSOR_DATA.value,
-        )
-        # Подписка на топик gps
-        self._node.create_subscription(
-            NavSatFix,
-            self.gps_topic,
-            self.gps_callback,
             QoSPresetProfiles.SENSOR_DATA.value,
         )
         # Паблишер в топик скоростей
@@ -111,16 +101,6 @@ class ROSInterface:
                 f"{time.time()},{position[0]},{position[1]},{position[2]},{lin_vel[0]},{lin_vel[1]},{lin_vel[2]}"
             )
             return position, orientation, lin_vel, ang_vel
-
-    def gps_callback(self, msg: NavSatFix | None) -> None:
-        if msg is not None:
-            latitude = np.radians(msg.latitude)
-            longitude = np.radians(msg.longitude)
-            altitude = msg.altitude
-            self._latest_gps = np.asarray([latitude, longitude, altitude])
-
-    def get_gps(self) -> np.ndarray:
-        return self._latest_gps
 
     def publish_cmd_vel(
         self,
